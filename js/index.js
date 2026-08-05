@@ -52,11 +52,16 @@ const video = document.getElementById('video');
 const canvas = document.getElementById('canvas');
 const foto = document.getElementById('foto');
 const bntFoto = document.getElementById('btnFoto');
+const btnTomarFoto = document.getElementById('tomarFoto');
 
 bntFoto.addEventListener("click", function() {
   navigator.mediaDevices
     .getUserMedia({
-        video: true,
+        video: {
+            facingMode: {
+                ideal: "environment"
+            }
+        },
         audio: false
     })
     .then((stream) => {
@@ -77,6 +82,8 @@ video.addEventListener("canplay", () => {
     }
 })
 
+btnTomarFoto.addEventListener("click", tomarFoto);
+
 function tomarFoto() {
     const contexto = canvas.getContext("2d");
     if (width && height) {
@@ -93,5 +100,5 @@ function tomarFoto() {
 }
 
 function limpiarFoto() {
-    
+    foto.src = "";
 }

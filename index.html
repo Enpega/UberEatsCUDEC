@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link type="text/css" href="css/styles.css" rel="stylesheet">
   <script type="text/javascript" src="js/materialize.min.js"></script>
+
 </head>
 <body class="grey lighten-4">
 
@@ -64,6 +65,7 @@
       </div>
     </form>
     <button id="btnFoto">Imagen</button>
+    <button id="tomarFoto">Capturar</button>
     <div id="camara">
         <video id="video">No hay video disponible</video>
     </div>
@@ -79,5 +81,11 @@
     <script src="js/firebase.js"></script>
     <script src="js/index.js"></script>
     <script src="js/db.js"></script>
+    <script>
+  if (typeof navigator.serviceWorker !== 'undefined') {
+    navigator.serviceWorker.register('sw.js')
+  }
+</script>
+
 </body>
 </html>
